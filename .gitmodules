@@ -1,0 +1,3 @@
+[submodule "lib/minitest"]
+	path = lib/minitest
+	url = git://github.com/lorennorman/minitest-spec-php.git
