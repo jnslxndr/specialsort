@@ -17,11 +17,12 @@ function specialsort(&$arr)
     $test = "ÄäÜüÖöß";
     $org = array("Ä","ä","Ö","ö","Ü","ü","ß");
     $tar = array("AE","ae","OE","oe","UE","ue","ss");
-    $org_reg = array_map(function($el){ return "/^".$el."/u";}, $org);
-    $tar_reg = array_map(function($el){ return "/^".$el."/u";}, $tar);
+    $org_reg = array_map(function($el){ return "/".$el."/u";}, $org);
+    $tar_reg = array_map(function($el){ return "/".$el."/u";}, $tar);
+    $tmp = $arr;
     array_walk($arr,function(&$el,$i,$data){ $el = preg_replace($data[0],$data[1],$el);},array(&$org_reg,&$tar));
-    natcasesort($arr); //, SORT_NATURAL | SORT_FLAG_CASE);
-    array_walk($arr,function(&$el,$i,$data){ $el = preg_replace($data[0],$data[1],$el);},array(&$tar_reg,&$org));
+    natcasesort($arr);
+    foreach ($arr as $key=>$value) $arr[$key] = $tmp[$key];
   } catch (Exception $e) {
     return -1;
   }
