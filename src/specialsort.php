@@ -4,8 +4,8 @@
  *
  * @author jens alexander ewald
  * @version 1.0
- * @copyright amt.io, 28 March, 2012
- * @package amt.utils
+ * @copyright lea.io, 28 March, 2012
+ * @package lea.utils
  * 
  * @param $arr - An array of your choice (passed by reference!)
  * @return Integer 0 for succes, -1 for failure
